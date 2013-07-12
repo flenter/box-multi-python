@@ -150,6 +150,7 @@ end
 bash "setup easy_install" do
   cwd Chef::Config[:file_cache_path]
   code <<-EOF
+    tar -zxvf setuptools-0.8.tar.gz
     cd setuptools-0.8
     python#{version_short} ez_setup.py --user
   EOF
