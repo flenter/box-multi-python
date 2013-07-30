@@ -142,8 +142,8 @@ bash "build-and-install-python" do
 end
 
 remote_file "#{Chef::Config[:file_cache_path]}/setuptools-0.8.tar.gz" do
-  source "https://pypi.python.org/packages/source/s/setuptools/setuptools-0.8.tar.gz"
-  checksum "7dffe775f3bea68a44f762a3490e5e28"
+  source "https://pypi.python.org/packages/source/s/setuptools/setuptools-0.9.8.tar.gz"
+  checksum "a13ad9411149c52501a15c702a4f3a3c757b5ba9"
   mode "0644"
 end
 
@@ -153,6 +153,14 @@ bash "setup easy_install" do
     tar -zxvf setuptools-0.8.tar.gz
     cd setuptools-0.8
     python#{version_short} ez_setup.py --user
+  EOF
+end
+
+bash "install pip" do
+  cwd Chef::Config[:file_cache_path]
+  code <<-EOF
+    curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+    python#{version} get-pip.py
   EOF
 end
 
@@ -188,8 +196,8 @@ bash "setup easy_install" do
 end
 
 remote_file "#{Chef::Config[:file_cache_path]}/setuptools-0.8.tar.gz" do
-  source "https://pypi.python.org/packages/source/s/setuptools/setuptools-0.8.tar.gz"
-  checksum "7dffe775f3bea68a44f762a3490e5e28"
+  source "https://pypi.python.org/packages/source/s/setuptools/setuptools-0.9.8.tar.gz"
+  checksum "a13ad9411149c52501a15c702a4f3a3c757b5ba9"
   mode "0644"
 end
 
@@ -198,6 +206,14 @@ bash "setup easy_install" do
   code <<-EOF
     cd setuptools-0.8
     python#{version_short} ez_setup.py --user
+  EOF
+end
+
+bash "install pip" do
+  cwd Chef::Config[:file_cache_path]
+  code <<-EOF
+    curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+    python#{version} get-pip.py
   EOF
 end
 
