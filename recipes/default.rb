@@ -141,7 +141,7 @@ bash "build-and-install-python" do
   # not_if { ::File.exists?(install_path) }
 end
 
-remote_file "#{Chef::Config[:file_cache_path]}/setuptools-0.8.tar.gz" do
+remote_file "#{Chef::Config[:file_cache_path]}/setuptools-0.9.8.tar.gz" do
   source "https://pypi.python.org/packages/source/s/setuptools/setuptools-0.9.8.tar.gz"
   checksum "a13ad9411149c52501a15c702a4f3a3c757b5ba9"
   mode "0644"
@@ -150,8 +150,8 @@ end
 bash "setup easy_install" do
   cwd Chef::Config[:file_cache_path]
   code <<-EOF
-    tar -zxvf setuptools-0.8.tar.gz
-    cd setuptools-0.8
+    tar -zxvf setuptools-0.9.8.tar.gz
+    cd setuptools-0.9.8
     python#{version_short} ez_setup.py --user
   EOF
 end
@@ -191,11 +191,11 @@ end
 # remote_file "#{Chef::Config[:file_cache_path]}/Python-#{version}.tar.bz2" do
 bash "setup easy_install" do
   code <<-EOF
-    wget https://bitbucket.org/pypa/setuptools/raw/0.8/ez_setup.py -O - | python#{version_short}
+    wget https://bitbucket.org/pypa/setuptools/raw/0.9.8/ez_setup.py -O - | python#{version_short}
   EOF
 end
 
-remote_file "#{Chef::Config[:file_cache_path]}/setuptools-0.8.tar.gz" do
+remote_file "#{Chef::Config[:file_cache_path]}/setuptools-0.9.8.tar.gz" do
   source "https://pypi.python.org/packages/source/s/setuptools/setuptools-0.9.8.tar.gz"
   checksum "a13ad9411149c52501a15c702a4f3a3c757b5ba9"
   mode "0644"
@@ -204,7 +204,7 @@ end
 bash "setup easy_install" do
   cwd Chef::Config[:file_cache_path]
   code <<-EOF
-    cd setuptools-0.8
+    cd setuptools-0.9.8
     python#{version_short} ez_setup.py --user
   EOF
 end
