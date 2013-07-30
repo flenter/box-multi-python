@@ -1,5 +1,5 @@
 name: multi-python
-version: 0.0.1
+version: 0.0.2
 inherits: ubuntu12.04-chef10.18.2
 type : main
 platform : ubuntu@12.04
