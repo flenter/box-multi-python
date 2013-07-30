@@ -160,7 +160,7 @@ bash "install pip" do
   cwd Chef::Config[:file_cache_path]
   code <<-EOF
     curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
-    python#{version} get-pip.py
+    python#{version_short} get-pip.py
   EOF
 end
 
@@ -213,7 +213,7 @@ bash "install pip" do
   cwd Chef::Config[:file_cache_path]
   code <<-EOF
     curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
-    python#{version} get-pip.py
+    python#{version_short} get-pip.py
   EOF
 end
 
