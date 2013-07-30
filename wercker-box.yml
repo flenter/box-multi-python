@@ -1,6 +1,6 @@
 name: multi-python
 version: 0.0.1
-inherits: wercker/ubuntu12.04-webessentials@0.0.3
+inherits: ubuntu12.04-chef10.18.2
 type : main
 platform : ubuntu@12.04
 description : python 2.7 and 3.3
