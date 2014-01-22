@@ -14,7 +14,7 @@ keywords:
   - python 3.3.3
 packages :
   - python 2.7.5
-  - python 3.3.2
+  - python 3.3.3
 script : sudo chef-solo -c $WERCKER_SOURCE_DIR/solo.rb -j $WERCKER_SOURCE_DIR/solo.json -l debug
 
 box-detect:
