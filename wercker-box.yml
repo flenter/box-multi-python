@@ -1,5 +1,5 @@
 name: multi-python
-version: 0.0.3
+version: 0.0.4
 inherits: wercker/ubuntu12.04-ruby1.9.3-berkshelf1@0.0.4
 type : main
 platform : ubuntu@12.04
@@ -11,7 +11,7 @@ keywords:
   - python 2.7.5
   - python 3
   - python 3.3
-  - python 3.3.2
+  - python 3.3.3
 packages :
   - python 2.7.5
   - python 3.3.2
