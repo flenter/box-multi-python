@@ -1,5 +1,5 @@
 name: multi-python
-version: 0.0.2
+version: 0.0.3
 inherits: wercker/ubuntu12.04-ruby1.9.3-berkshelf1@0.0.2
 type : main
 platform : ubuntu@12.04
