@@ -117,7 +117,7 @@
   end
 end
 
-version = "3.3.2"
+version = "3.3.3"
 version_short = version[0, version.length - 2]
 configure_options = ""
 
