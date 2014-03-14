@@ -1,34 +1,37 @@
 name: multi-python
 version: 0.0.4
 inherits: wercker/ubuntu12.04-ruby1.9.3-berkshelf1@0.0.4
-type : main
-platform : ubuntu@12.04
-description : python 2.7 and 3.3
+type: main
+platform: ubuntu@12.04
+description: "python 2.6, 2.7, 3.2 and 3.3"
 keywords:
   - python
   - python 2
+  - python 2.6
+  - python 2.6.8
   - python 2.7
   - python 2.7.5
   - python 3
+  - python 3.2
+  - python 3.2.5
   - python 3.3
   - python 3.3.3
-packages :
-  - python 2.7.5
-  - python 3.3.3
-script : sudo chef-solo -c $WERCKER_SOURCE_DIR/solo.rb -j $WERCKER_SOURCE_DIR/solo.json -l debug
+packages:
+  - python@2.6.8
+  - python@2.7.6
+  - python@3.2.5
+  - python@3.3.3
+  - virtualenv
+  - pip
+script: sudo chef-solo -c $WERCKER_SOURCE_DIR/solo.rb -j $WERCKER_SOURCE_DIR/solo.json -l debug
 
 box-detect:
-  priority : 901
-  version :
-  detect:
-    - files:
-      - requirements.txt
-    - files:
-      - setup.py
+  priority: 900
+  version:
 
 default-build:
   python:
-    priority : 51
+    priority : 50
     detect:
       - default: true
     text-to-append: |
@@ -37,17 +40,6 @@ default-build:
         # The steps that will be executed on build
         steps:
           # A step that executes `pip install` command
-          - flenter/py-virtualenv
-
-          - scripts:
-              name: pip install
-              echo: |
-                pip install -r requirements.txt
-
-          # A custom script step, name value is used in the UI
-          # and the code value contains the command that get executed
-          - script:
-              name: echo python information
-              code: |
-                echo "python version $(python --version) running"
-                echo "pip version $(pip --version) running"
+          - virtualenv:
+              name: create virtualenv
+              install_wheel: true
