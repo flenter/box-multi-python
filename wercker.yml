@@ -9,6 +9,7 @@ build:
     - script:
         name: check python versions
         code: |
+          echo $PATH
           which python
           python --version
           which pip
