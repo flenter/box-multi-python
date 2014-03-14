@@ -12,8 +12,9 @@
   ],
   "override_attributes" : {
     "python_build": {
-      "versions" : ["2.6.8", "2.7.6", "3.2.5", "3.3.5"],
-      "packages" : ["pip", "virtualenv"]
+      "versions": ["2.6.8", "2.7.6", "3.2.5", "3.3.5"],
+      "packages": ["pip", "virtualenv"],
+      "install_prefix": "/usr/bin"
     }
   }
 }
