@@ -6,11 +6,14 @@
     "recipe[apt]",
     "recipe[wercker-essential]",
     "recipe[wercker-aptkey::default]",
+    "recipe[python-build]"
     // "recipe[python::default]",
     // "recipe[wercker-virtualenv]",
-    "recipe[multi-python]"
-    // "recipe[wercker-django::default]",
-    // "recipe[mysql::client]",
-    // "recipe[postgresql::client]"
-  ]
+  ],
+  "override_attributes" : {
+    "python_build": {
+      "versions" : ["2.6.8", "2.7.6", "3.2.5", "3.3.5"],
+      "packages" : ["pip", "virtualenv"]
+    }
+  }
 }
